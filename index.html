@@ -16,13 +16,14 @@
 
 <div class="container">
     <h1 class="text-center">To Do List</h1>
+    <!-- Enter Input -->
     <form action="">
         <div class="form-row">
             <div class="form-group col">
-                <input type="text" class="form-control form-control-lg" placeholder="Add  a Task">
+                <input type="text" id="input" class="form-control form-control-lg" placeholder="Add  a Task">
             </div>
             <div class="form-group d-flex">
-                <button type="submit" class="btn btn-primary ">Submit</button>
+                <button type="submit" id="submit" class="btn btn-primary ">Submit</button>
             </div>
 
         </div>
@@ -52,20 +53,20 @@
     </div>
     <hr class="mt-0">
 
-    <div id="todoNotDone">
-        <ul class="list-not-done list-group mb-4">
-            <li class="list-group-item d-flex justify-content-between">
-                <button type="button" class="btn btn-empty btn-circle "><i class="fa fa-check"></i></button>
-                <p class="my-auto"> Make Dinner</p>
-                <button type="button" class="btn btn-danger btn ">x</button>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-                <button type="button" class="btn btn-empty btn-circle "><i class="fa fa-check"></i></button>
-                <p class="my-auto"> Make Dinner</p>
-                <button type="button" class="btn btn-danger btn ">x</button>
-            </li>
-        </ul>
-    </div>
+
+    <ul id="todoNotDone" class="list-not-done list-group mb-4">
+        <li class="list-group-item d-flex justify-content-between">
+            <button type="button" class="btn btn-empty btn-circle "><i class="fa fa-check"></i></button>
+            <p class="my-auto"> Make Dinner</p>
+            <button type="button" class="btn btn-danger btn ">x</button>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <button type="button" class="btn btn-empty btn-circle "></button>
+            <p class="my-auto"> Make Dinner</p>
+            <button type="button" class="btn btn-danger btn ">x</button>
+        </li>
+    </ul>
+
 
 </div>
 
