@@ -15,7 +15,12 @@
     border-color: black;
 }
 
-.btn-circle:hover{
-    color: rgb(35, 143, 9);
-    background-color: lightgreen;
+
+button.btn.btn-circle.fill-off:hover{
+    color: white;
+    background-color: green
+}
+
+.bg-success:hover{
+color: white;
 }
