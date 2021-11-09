@@ -10,7 +10,7 @@ submitBtn.addEventListener("click", addTodo)
 function addTodo(event) {
     event.preventDefault();
     const item = document.createElement("div")
-    item.innerHTML += `<li class="list-group-item d-flex justify-content-between"><button type="button" class="btn btn-circle "></button><p class="my-auto">${input.value}</p><button type="button" class="btn btn-danger btn ">x</button></li>`;
+    item.innerHTML += `<li class="list-group-item d-flex justify-content-between"><button type="button" class="btn btn-circle "><i class="fa fa-check"></i></button><p class="my-auto">${input.value}</p><button type="button" class="btn btn-danger btn ">x</button></li>`;
     notDoneList.appendChild(item)
     const itemButtons = item.querySelectorAll("button");
 
