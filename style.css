@@ -8,12 +8,14 @@
     padding: 6px 0px;
     border-radius: 20px;
     text-align: center;
-    font-size: 12px;
+    font-size: 20px;
     line-height: 1.42857;
-}
-
-.btn-empty{
-    color: #333;
+    color: white;
     background-color: #fff;
     border-color: black;
+}
+
+.btn-circle:hover{
+    color: rgb(35, 143, 9);
+    background-color: lightgreen;
 }
