@@ -29,8 +29,9 @@
         </div>
     </form>
 
-    <!-- Done Tasks -->
+    <!-- COMPLETED TASKS -->
     <div class="row">
+        <!-- Title and Count -->
         <div class="col-10">
             <h2>Done</h2>
         </div>
@@ -39,11 +40,21 @@
         </div>
     </div>
     <hr class="mt-0">
-    <div class="row" id="todoDone">
-        <ul class="list--done"></ul>
-    </div>
-    <!-- Not Done Tasks -->
+    <!-- Done Items -->
+    <ul id="todoDone" class="list-group">
+        <!-- <li class="list-group-item d-flex justify-content-between">
+            <button type="button" class="btn btn-circle "><i class="fa fa-check"></i></button>
+            <p class="my-auto"> Make Dinner</p>
+            <button type="button" class="btn btn-danger btn ">x</button>
+        </li> -->
+    </ul>
+    <!-- END COMEPLETED TASKS -->
+
+
+
+    <!-- UNCOMPLETED TASKS-->
     <div class="row">
+        <!-- Title and Count -->
         <div class="col-10">
             <h2>Not Done</h2>
         </div>
@@ -53,15 +64,15 @@
     </div>
     <hr class="mt-0">
 
-
-    <ul id="todoNotDone" class="list-not-done list-group mb-4">
-        <li class="list-group-item d-flex justify-content-between">
+    <!-- Not Done Items -->
+    <ul id="todoNotDone" class="list-group mb-4">
+        <!-- <li class="list-group-item d-flex justify-content-between">
             <button type="button" class="btn btn-circle "><i class="fa fa-check"></i></button>
             <p class="my-auto"> Make Dinner</p>
             <button type="button" class="btn btn-danger btn ">x</button>
-        </li>
-      
+        </li> -->
     </ul>
+    <!-- END UNCOMEPLETED TASKS -->
 
 
 </div>
