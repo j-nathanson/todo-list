@@ -1,9 +1,12 @@
-// SELECTORS
+// SELECTORS and Global Constant variables
 const input = document.getElementById("input");
 const submitBtn = document.getElementById("submit");
 const notDoneList = document.getElementById("todoNotDone");
 const doneList = document.getElementById("todoDone");
-
+const numTasksDone = document.getElementById("numFinished");
+let counterDone = 0;
+const numTasksNotDone = document.getElementById("numUnfinished");
+let counterNotDone = 0;
 // Event LISTENERS
 submitBtn.addEventListener("click", addTodo)
 
@@ -22,6 +25,21 @@ function addTodo(event) {
     // Delete Task
     exitBtn.addEventListener("click", function () {
         item.remove();
+
+
+        // counterNotDone--;
+        // counterDone--;
+        // if (counterNotDone < 1) {
+        //     counterNotDone = '';
+        //     numTasksNotDone.innerText = counterNotDone;
+        // } else if (counterDone < 1) {
+        //     counterNotDone = '';
+        //     numTasksDone.innerText = counterDone;
+        // } else{
+        //     numTasksNotDone.innerText = `(${counterNotDone})`;
+        //     numTasksDone.innerText = `(${counterDone})`;
+        // }
+
     });
     // Toggle Sections and Fill color
     circleBtn.addEventListener("click", function () {
@@ -30,20 +48,28 @@ function addTodo(event) {
         let sectionID = (item.parentNode.id);
         // switch to Done section
         if (sectionID === "todoNotDone") {
-            // circleBtn.style.backgroundColor = "lightgreen";
-            //  circleBtn.style.color = "green";
             circleBtn.classList.toggle("bg-success");
             circleBtn.classList.toggle("fill-off");
             doneList.append(item);
-         
 
-        //   return to Not Done section
+            // counterDone++;
+            // counterNotDone++
+            // numTasksDone.innerHTML = `<h4>(${counterDone})</h4>`;
+            // numTasksNotDone.innerText = `(${counterNotDone})`;
+
+
+            //   return to Not Done section
         } else {
-            // circleBtn.style.backgroundColor = "";
-            // circleBtn.style.color = "";
             circleBtn.classList.toggle("bg-success");
             circleBtn.classList.toggle("fill-off");
             notDoneList.append(item);
+
+            // counterDone--;
+            // if (counterDone === 0) {
+            //     counterDone = "";
+            // }
+            // numTasksDone.innerText = counterDone;
+
         }
     })
     input.value = "";
