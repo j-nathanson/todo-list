@@ -51,6 +51,7 @@ function addTodo(event) {
             circleBtn.classList.toggle("bg-success");
             circleBtn.classList.toggle("fill-on");
             doneList.append(item);
+            // Update done counter
             counterDone++;
             numTasksDone.innerText = `(${counterDone})`;
             decreaseNotDoneCounter();
@@ -60,9 +61,9 @@ function addTodo(event) {
             circleBtn.classList.toggle("bg-success");
             circleBtn.classList.toggle("fill-on");
             notDoneList.append(item);
+            // Update not done counter
             counterNotDone++;
-            numTasksNotDone.innerText = `(${counterNotDone})`
-            counterNotDone;
+            numTasksNotDone.innerText = `(${counterNotDone})`;
             decreaseDoneCounter()
 
 
