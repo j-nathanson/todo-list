@@ -21,46 +21,71 @@ function addTodo(event) {
                 <p class="my-auto">${input.value}</p>
             <button type="button" class="btn btn-danger btn ">x</button>
         </li>`;
-    notDoneList.appendChild(item)
+    notDoneList.appendChild(item);
+    counterNotDone++;
+    numTasksNotDone.innerText = `(${counterNotDone})`
+    
 
     // SELECTORS FOR EACH TASK ITEM
     const itemButtons = item.querySelectorAll("button");
     const circleBtn = itemButtons[0];
     const exitBtn = itemButtons[1];
 
-    // Delete Task
+    // Delete Task and decrease correct counter
     exitBtn.addEventListener("click", function () {
+        let sectionID = item.parentNode.id;
+        if (sectionID === "todoNotDone") {
+            decreaseNotDoneCounter();
+        } else {
+            decreaseDoneCounter();
+        }
         item.remove();
-
-
     });
-    // Toggle Sections and Fill color
+    // Toggle between sections,toggle circle color, adjust BOTH counters
     circleBtn.addEventListener("click", function () {
 
-        let sectionID = (item.parentNode.id);
+        let sectionID = item.parentNode.id;
+
         // switch to Done section
         if (sectionID === "todoNotDone") {
             circleBtn.classList.toggle("bg-success");
             circleBtn.classList.toggle("fill-on");
             doneList.append(item);
+            counterDone++;
+            numTasksDone.innerText = `(${counterDone})`;
+            decreaseNotDoneCounter();
 
             //   return to Not Done section
         } else {
             circleBtn.classList.toggle("bg-success");
             circleBtn.classList.toggle("fill-on");
             notDoneList.append(item);
+            counterNotDone++;
+            numTasksNotDone.innerText = `(${counterNotDone})`
+            counterNotDone;
+            decreaseDoneCounter()
 
-            // counterDone--;
-            // if (counterDone === 0) {
-            //     counterDone = "";
-            // }
-            // numTasksDone.innerText = counterDone;
 
         }
     })
     input.value = "";
 }
 
-function decreaseCounter() {
+function decreaseNotDoneCounter() {
+    counterNotDone--;
+    if (counterNotDone === 0) {
+        numTasksNotDone.innerText = "";
+    } else {
+        numTasksNotDone.innerText = counterNotDone;
+    }
+}
+
+function decreaseDoneCounter() {
+    counterDone--;
+    if (counterDone === 0) {
+        numTasksDone.innerText = "";
+    } else {
+        numTasksDone.innerText = counterDone;
+    }
 
 }
