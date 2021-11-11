@@ -8,68 +8,74 @@ const numTasksNotDone = document.getElementById("numUnfinished");
 let counterDone = 0;
 let counterNotDone = 0;
 // Event LISTENERS
-submitBtn.addEventListener("click", addTodo)
+submitBtn.addEventListener("click", addTodo);
 
 // CREATE ITEM NODE & ADD EVENT LISTENERS
 function addTodo(event) {
     event.preventDefault();
-    const item = document.createElement("div")
-    item.innerHTML +=
-        `<li class="list-group-item d-flex justify-content-between">
-            <button type="button" class="btn btn-circle fill-on">
-                <i class="fa fa-check"></i></button>
-                <p class="my-auto">${input.value}</p>
-            <button type="button" class="btn btn-danger btn ">x</button>
-        </li>`;
-    notDoneList.appendChild(item);
-    counterNotDone++;
-    numTasksNotDone.innerText = `(${counterNotDone})`
+
+    if (input.value === "") {
+        alert("Please enter a task");
+
+    } else {
+        const item = document.createElement("div")
+        item.innerHTML +=
+            `<li class="list-group-item d-flex justify-content-between">
+                <button type="button" class="btn btn-circle fill-on">
+                    <i class="fa fa-check"></i></button>
+                    <p class="my-auto">${input.value}</p>
+                <button type="button" class="btn btn-danger btn ">x</button>
+            </li>`;
+        notDoneList.appendChild(item);
+        counterNotDone++;
+        numTasksNotDone.innerText = `(${counterNotDone})`
 
 
-    // SELECTORS FOR EACH TASK ITEM
-    const itemButtons = item.querySelectorAll("button");
-    const circleBtn = itemButtons[0];
-    const exitBtn = itemButtons[1];
+        // SELECTORS FOR EACH TASK ITEM
+        const itemButtons = item.querySelectorAll("button");
+        const circleBtn = itemButtons[0];
+        const exitBtn = itemButtons[1];
 
-    // Delete Task and decrease correct counter
-    exitBtn.addEventListener("click", function () {
-        let sectionID = item.parentNode.id;
-        if (sectionID === "todoNotDone") {
-            decreaseNotDoneCounter();
-        } else {
-            decreaseDoneCounter();
-        }
-        item.remove();
-    });
-    // Toggle between sections,toggle circle color, adjust BOTH counters
-    circleBtn.addEventListener("click", function () {
+        // Delete Task and decrease correct counter
+        exitBtn.addEventListener("click", function () {
+            let sectionID = item.parentNode.id;
+            if (sectionID === "todoNotDone") {
+                decreaseNotDoneCounter();
+            } else {
+                decreaseDoneCounter();
+            }
+            item.remove();
+        });
+        // Toggle between sections,toggle circle color, adjust BOTH counters
+        circleBtn.addEventListener("click", function () {
 
-        let sectionID = item.parentNode.id;
+            let sectionID = item.parentNode.id;
 
-        // switch to Done section
-        if (sectionID === "todoNotDone") {
-            circleBtn.classList.toggle("bg-success");
-            circleBtn.classList.toggle("fill-on");
-            doneList.append(item);
-            // Update counters
-            counterDone++;
-            numTasksDone.innerText = `(${counterDone})`;
-            decreaseNotDoneCounter();
+            // switch to Done section
+            if (sectionID === "todoNotDone") {
+                circleBtn.classList.toggle("bg-success");
+                circleBtn.classList.toggle("fill-on");
+                doneList.append(item);
+                // Update counters
+                counterDone++;
+                numTasksDone.innerText = `(${counterDone})`;
+                decreaseNotDoneCounter();
 
-            //   return to Not Done section
-        } else {
-            circleBtn.classList.toggle("bg-success");
-            circleBtn.classList.toggle("fill-on");
-            notDoneList.append(item);
-            // Update  counters
-            counterNotDone++;
-            numTasksNotDone.innerText = `(${counterNotDone})`;
-            decreaseDoneCounter()
+                //   return to Not Done section
+            } else {
+                circleBtn.classList.toggle("bg-success");
+                circleBtn.classList.toggle("fill-on");
+                notDoneList.append(item);
+                // Update  counters
+                counterNotDone++;
+                numTasksNotDone.innerText = `(${counterNotDone})`;
+                decreaseDoneCounter()
+
+            }
+        })
+    }
 
 
-        }
-    })
-    input.value = "";
 }
 
 function decreaseNotDoneCounter() {
