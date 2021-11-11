@@ -24,7 +24,7 @@ function addTodo(event) {
     notDoneList.appendChild(item);
     counterNotDone++;
     numTasksNotDone.innerText = `(${counterNotDone})`
-    
+
 
     // SELECTORS FOR EACH TASK ITEM
     const itemButtons = item.querySelectorAll("button");
@@ -51,7 +51,7 @@ function addTodo(event) {
             circleBtn.classList.toggle("bg-success");
             circleBtn.classList.toggle("fill-on");
             doneList.append(item);
-            // Update done counter
+            // Update counters
             counterDone++;
             numTasksDone.innerText = `(${counterDone})`;
             decreaseNotDoneCounter();
@@ -61,7 +61,7 @@ function addTodo(event) {
             circleBtn.classList.toggle("bg-success");
             circleBtn.classList.toggle("fill-on");
             notDoneList.append(item);
-            // Update not done counter
+            // Update  counters
             counterNotDone++;
             numTasksNotDone.innerText = `(${counterNotDone})`;
             decreaseDoneCounter()
@@ -77,7 +77,7 @@ function decreaseNotDoneCounter() {
     if (counterNotDone === 0) {
         numTasksNotDone.innerText = "";
     } else {
-        numTasksNotDone.innerText = counterNotDone;
+        numTasksNotDone.innerText = `(${counterNotDone})`
     }
 }
 
@@ -86,7 +86,7 @@ function decreaseDoneCounter() {
     if (counterDone === 0) {
         numTasksDone.innerText = "";
     } else {
-        numTasksDone.innerText = counterDone;
+        numTasksDone.innerText = `(${counterDone})`;
     }
 
 }
