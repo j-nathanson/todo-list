@@ -74,6 +74,7 @@ function addTodo(event) {
             }
         })
     }
+    input.value = '';
 
 
 }
